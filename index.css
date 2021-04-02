@@ -1,0 +1,39 @@
+body{
+    background-color: white;
+    margin: 0;
+}
+#gameView{
+    text-align: center;
+    box-sizing: border-box;
+    padding: 1em;
+    overflow: auto;
+    height: calc(100vh - 5em);
+}
+#footer{
+    box-sizing: border-box;
+    height: 5em;
+    padding: 0em 1em 1em 1em;
+}
+.pageSelectOuter{
+    box-sizing: border-box;
+    float: left;
+    width: 33%;
+    padding: 0.3em;
+    text-align: center;
+    height: 100%;
+}
+.pageSelect{
+    box-sizing: border-box;
+    background-color: white;
+    display: inline-flexbox;
+    height: 100%;
+    border: 1px solid gray;
+    border-radius: 999px;
+    padding: 0.2em 0 0.2em 0;
+}
+.pageSelected{
+    box-shadow: 0 0 10px 5px lightblue;
+}
+.pageImg{
+    height: 100%;
+}
