@@ -5,34 +5,51 @@
 <head>
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
     <script src="index.js"></script>
+    <script src="upgrades.js"></script>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="mainPage.css">
+    <link rel="stylesheet" href="upgradePage.css">
     <meta charset="UTF-8">
 </head>
 
 <body>
-        <div id="gameView">
-            <div class="page" id="mainPage" style="display:block">
-                <div id="userInfo">
+
+    <div id="gameView">
+        <div class="page" id="mainPage" style="display:block">
+            <div id="userInfo">
                 <image id="userPicture"></image>
                 <p id="name">--имя--</p>
-                </div>
-                <div class="infoBox">
-                    <span class="infoTitleLarge">Ваш статус:</span>
-                    <span class="infoLarge" id="status">БОМЖ</span>
-                </div>
-                <div class="infoBox">
-                    <span class="infoTitleLarge">Бабло:</span>
-                    <span class="infoLarge"><span id="money">0</span>₽</span>
-                </div>
             </div>
-            <div class="page" id="upgradePage" style="display:none">
-                <p>тут можно будет устраиваться на работу, смотреть рекламу, покупать рабов и т.п.</p>
+            <div class="infoBox">
+                <span class="infoTitleLarge">Ваш статус:</span>
+                <span class="infoLarge" id="status">БОМЖ</span>
             </div>
-            <div class="page" id="leaderboardPage" style="display:none">
-                <p>тут будут показываться очки друзей и самых прокаченных игроков</p>
+            <div class="infoBox">
+                <span class="infoTitleLarge">Бабло:</span>
+                <span class="infoLarge" id="money">0₽</span>
             </div>
         </div>
+
+        <div class="page" id="upgradePage" style="display:none">
+
+            <div id="upgrades">
+                <!--
+                this is example upgrade
+                <div class="infoBox" id="jobCollectMetal">
+                    <p class="jobName">Сдавать металлолом</p>
+                    <p class="jobCost">Стоимость: 0₽</p>
+                    <p class="jobReward">Выгода: 50₽ через 1 день</p>
+                </div>
+                !-->
+            </div>
+
+        </div>
+
+        <div class="page" id="leaderboardPage" style="display:none">
+            <p>тут будут показываться очки друзей и самых прокаченных игроков</p>
+        </div>
+    </div>
+
     <div id="footer">
         <div class="pageSelectOuter" onclick="setPage('leaderboardPage')">
             <div id="leaderboardPageSelect" class=" pageSelect">
@@ -50,6 +67,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

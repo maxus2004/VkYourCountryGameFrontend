@@ -1,0 +1,16 @@
+.jobName{
+    font: 1.5em sans-serif;
+    margin: 0;
+    float: left;
+}
+.jobCost{
+    font: 1.5em sans-serif;
+    margin: 0;
+    text-align: right;
+}
+.jobReward{
+    font: 1.5em sans-serif;
+    color: gray;
+    margin: 0;
+    text-align: right;
+}
