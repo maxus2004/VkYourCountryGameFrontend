@@ -4,9 +4,9 @@
 
 <head>
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-    <script src="/VkYourCountryGameFrontend/index.js"></script>
-    <link rel="stylesheet" href="/VkYourCountryGameFrontend/index.css">
-    <link rel="stylesheet" href="/VkYourCountryGameFrontend/mainPage.css">
+    <script src="/index.js"></script>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/mainPage.css">
     <meta charset="UTF-8">
 </head>
 
@@ -21,6 +21,10 @@
                     <span class="infoTitleLarge">Ваш статус:</span>
                     <span class="infoLarge" id="status">БОМЖ</span>
                 </div>
+                <div class="infoBox">
+                    <span class="infoTitleLarge">Бабло:</span>
+                    <span class="infoLarge"><span id="money">0</span>₽</span>
+                </div>
             </div>
             <div class="page" id="upgradePage" style="display:none">
                 <p>тут можно будет устраиваться на работу, смотреть рекламу, покупать рабов и т.п.</p>
@@ -32,17 +36,17 @@
     <div id="footer">
         <div class="pageSelectOuter" onclick="setPage('leaderboardPage')">
             <div id="leaderboardPageSelect" class=" pageSelect">
-                <img class="pageImg" src="/VkYourCountryGameFrontend/img/leaderboardBtn.png">
+                <img class="pageImg" src="/img/leaderboardBtn.png">
             </div>
         </div>
         <div class="pageSelectOuter" onclick="setPage('mainPage')">
             <div id="mainPageSelect" class="pageSelect pageSelected">
-                <img class="pageImg" src="/VkYourCountryGameFrontend/img/mainPageBtn.png">
+                <img class="pageImg" src="/img/mainPageBtn.png">
             </div>
         </div>
         <div class="pageSelectOuter" onclick="setPage('upgradePage')">
             <div id="upgradePageSelect" class=" pageSelect">
-                <img class="pageImg" src="/VkYourCountryGameFrontend/img/upgadePageBtn.png">
+                <img class="pageImg" src="/img/upgadePageBtn.png">
             </div>
         </div>
     </div>
