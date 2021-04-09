@@ -5,11 +5,11 @@ async function loadPlayerData() {
         document.getElementById("userPicture").src = data.photo_200;
     });
 
-    console.log(document.location.search);
+    let urlParams = new URLSearchParams(document.location.search);
     let response = await fetch("https://servermaksa.tk/yourcountryserver/getUser",
         {
             method: "POST",
-            body: JSON.stringify({ id: document.location.hash.vk_user_id })
+            body: JSON.stringify({ id: urlParams.get("vk_user_id") })
         });
 
     if (response.ok) {
