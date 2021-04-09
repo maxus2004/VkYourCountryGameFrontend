@@ -1,4 +1,4 @@
-function loadPlayerData() {
+async function loadPlayerData() {
     bridge.send("VKWebAppGetUserInfo").then(data => {
         console.log(data);
         document.getElementById("name").innerText = data.first_name+" "+data.last_name;
