@@ -29,7 +29,7 @@ function loadJobs() {
         jobNode.appendChild(jobNameNode);
         var jobCostNode = document.createElement('p');
         jobCostNode.className = 'jobCost';
-        jobCostNode.innerText ='Стоимость: '+job.cost + '₽';
+        jobCostNode.innerText ='Цена: '+job.cost + '₽';
         jobNode.appendChild(jobCostNode);
         var jobRewardNode = document.createElement('p');
         jobRewardNode.className = 'jobReward';
