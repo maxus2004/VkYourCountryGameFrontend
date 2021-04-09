@@ -29,11 +29,11 @@ function loadJobs() {
         jobNode.appendChild(jobNameNode);
         var jobCostNode = document.createElement('p');
         jobCostNode.className = 'jobCost';
-        jobCostNode.innerText = job.cost + '₽';
+        jobCostNode.innerText ='Стоимость: '+job.cost + '₽';
         jobNode.appendChild(jobCostNode);
         var jobRewardNode = document.createElement('p');
         jobRewardNode.className = 'jobReward';
-        jobRewardNode.innerText = job.reward + '₽ через ' + job.rewardDelay + ' ' + numToDays(job.rewardDelay);
+        jobRewardNode.innerText = 'Выгода: '+job.reward + '₽ через ' + job.rewardDelay + ' ' + numToDays(job.rewardDelay);
         jobNode.appendChild(jobRewardNode);
         jobsNode.appendChild(jobNode);
     });
