@@ -5,6 +5,7 @@ async function loadPlayerData() {
         document.getElementById("userPicture").src = data.photo_200;
     });
 
+    console.log(document.location);
     let response = await fetch("https://servermaksa.tk/yourcountryserver/getUser",
         {
             method: "POST",
