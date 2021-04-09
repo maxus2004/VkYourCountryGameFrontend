@@ -12,6 +12,7 @@ window.onload = function () {
     pages.leaderboard = document.getElementById('leaderboardPage');
 
     loadJobs();
+    loadPlayerData();
 }
 
 function setPage(page) {
@@ -24,9 +25,3 @@ function setPage(page) {
     document.getElementById(page).style.display = 'block';
     document.getElementById(page + 'Select').classList.add('pageSelected');
 }
-
-bridge.send("VKWebAppGetUserInfo").then(data => {
-    console.log(data);
-    document.getElementById("name").innerText = data.first_name+" "+data.last_name;
-    document.getElementById("userPicture").src = data.photo_200;
-});
