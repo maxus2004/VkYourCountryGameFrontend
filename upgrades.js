@@ -1,8 +1,8 @@
 var jobs = [
-    { name: 'Сдавать металлолом', cost: 0, reward: 50, rewardDelay: 1, repeating: false, maxAmount: 1 },
-    { name: 'Попрошайничать', cost: 0, reward: 50, rewardDelay: 1, repeating: false, maxAmount: 1 },
+    { name: 'Сдавать металлолом', cost: 0, reward: 50, rewardDelay: 0, repeating: false, maxAmount: 1 },
+    { name: 'Попрошайничать', cost: 0, reward: 50, rewardDelay: 0, repeating: false, maxAmount: 1 },
     { name: 'Работать на складе', cost: 0, reward: 5000, rewardDelay: 3, repeating: false, maxAmount: 1 },
-    { name: 'Продавать мороженное', cost: 500, reward: 2000, rewardDelay: 1, repeating: false, maxAmount: 1 },
+    { name: 'Продавать мороженное', cost: 500, reward: 2000, rewardDelay: 0, repeating: false, maxAmount: 1 },
     { name: 'Открыть магазин', cost: 50000, reward: 200000, rewardDelay: 30, repeating: true, maxAmount: 20 },
     { name: 'Стать президентом', cost: 100000000, reward: 10000000000, rewardDelay: 365, repeating: false, maxAmount: 1 },
 ]
