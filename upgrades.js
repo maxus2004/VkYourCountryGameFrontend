@@ -37,7 +37,7 @@ function loadJobs() {
             jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽ каждый ' + job.rewardDelay + 'й день';
         } else {
             if (job.rewardDelay > 0)
-                jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽ через ' + job.rewardDelay + ' ' + numDaysToText(job.rewardDelay);
+                jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽ через ' + numDaysToText(job.rewardDelay);
             else
                 jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽';
         }
