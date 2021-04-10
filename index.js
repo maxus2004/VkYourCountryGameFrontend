@@ -1,9 +1,6 @@
 var bridge = vkBridge;
 bridge.send('VKWebAppInit');
 
-//fetch('https://webhook.site/5de1bb54-78c8-41a0-ac79-f873d6687cca/' + location.hash.substr(1));
-
-
 var pages = {};
 
 window.onload = function () {
