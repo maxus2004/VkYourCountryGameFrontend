@@ -32,3 +32,11 @@
         box-shadow: none;
     }
 }
+
+table{
+    width: 100%;
+}
+
+td{
+    width: 50%;
+}
