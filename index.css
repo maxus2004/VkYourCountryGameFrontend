@@ -62,6 +62,7 @@ body {
     padding: 0.5em;
     font: 1.5em sans-serif;
     transition: bottom 0.25s ease-in;
+    text-align: center;
 }
 
 .messageBoxActive {
