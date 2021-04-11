@@ -27,5 +27,5 @@ function updatePlayerInfo() {
 function showMessage(message) {
     document.getElementById('messageBox').innerText = message;
     document.getElementById('messageBox').classList.remove('messageBoxActive');
-    setTimeout(function() { document.getElementById('messageBox').classList.add('messageBoxActive') }, 0);
+    setTimeout(function() { document.getElementById('messageBox').classList.add('messageBoxActive') }, 10);
 }
