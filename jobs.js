@@ -55,7 +55,8 @@ function clickJob(taskId) {
     if (animatingJob) return;
     if (tasks[taskId].cost > playerData.money) {
         showMessage('Мало денег');
-        document.getElementById('upgrades').children[taskId].classList.toggle('jobAnimatingNoMoney');
+        document.getElementById('upgrades').children[taskId].classList.remove('jobAnimatingNoMoney');
+        setTimeout(function() { document.getElementById('upgrades').children[taskId].classList.add('jobAnimatingNoMoney') }, 10);
         return;
     }
     animatingJob = true;
