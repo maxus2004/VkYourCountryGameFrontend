@@ -14,3 +14,19 @@
     margin: 0;
     text-align: right;
 }
+
+.jobAnimating{
+    animation-duration: 1s;
+    animation-name: doJob;
+    box-shadow: 0 0 10px 5px lightblue;
+}
+
+@keyframes doJob {
+    from {
+        background: linear-gradient(90deg, lime 0%, transparent 5%);
+    }
+  
+    to {
+        background: linear-gradient(90deg, lime 100%, transparent 105%);
+    }
+}
