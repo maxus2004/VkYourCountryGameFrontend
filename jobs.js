@@ -54,11 +54,14 @@ function loadJobs() {
 function clickJob(jobId){
     if(animatingJob)return;
     animatingJob = true;
-    document.getElementById('upgrades').children[jobId].classList.toggle('jobAnimating');
+    document.getElementById('upgrades').children[jobId].classList.add('jobClicked');
+    document.getElementById('upgrades').children[jobId].classList.add('jobAnimating');
     console.log(jobs[jobId].name);
 }
 
 function stopJobAnimation(jobId){
     animatingJob = false;
+    document.getElementById('upgrades').children[jobId].classList.remove('jobClicked');
+    document.getElementById('upgrades').children[jobId].classList.remove('jobAnimating');
     console.log('finished '+jobs[jobId].name);
 }
