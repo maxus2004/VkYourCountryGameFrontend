@@ -8,5 +8,6 @@ async function loadPlayerData() {
     let response = await fetch('https://servermaksa.tk/yourcountryserver/getUser'+location.search);
     playerData = await response.json();
     document.getElementById('money').innerText = playerData.money+"₽";
+    document.getElementById('day').innerText = playerData.days;
     console.log(playerData);
 }
