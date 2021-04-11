@@ -18,17 +18,11 @@
 .jobAnimating{
     background: linear-gradient(90deg, lime 50%, transparent 5%);
     background-size: 200% 200%;
-    animation: doJob 1s cubic-bezier(0.77, 0.03, 0.11, 0.98);
+    transition: all 1s cubic-bezier(0.77, 0.03, 0.11, 0.98);
+    background-position: 100% 50%;
+    box-shadow: 0 0 10px 5px lightblue;
 }
-
-@keyframes doJob {
-    from {
-        background-position: 100% 50%;
-        box-shadow: 0 0 10px 5px lightblue;
-    }
-  
-    to {
-        background-position: 0% 50%;
-        box-shadow: none;
-    }
+.jobAnimating:hover{
+    background-position: 0% 50%;
+    box-shadow: none;
 }
