@@ -45,7 +45,8 @@ function loadJobs() {
                 jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽';
         }
         jobNode.appendChild(jobRewardNode);
-        jobNode.addEventListener('click', function(){clickJob(i)}, false)
+        jobNode.addEventListener('click', function(){clickJob(i)})
+        jobNode.addEventListener('transitionend',function(){stopJobAnimation(i)})
         jobsNode.appendChild(jobNode);
     };
 }
@@ -54,7 +55,6 @@ function clickJob(jobId){
     if(animatingJob)return;
     animatingJob = true;
     document.getElementById('upgrades').children[jobId].classList.add('jobAnimating');
-    setTimeout(function(){stopJobAnimation(jobId)},1000);
     console.log(jobs[jobId].name);
 }
 
