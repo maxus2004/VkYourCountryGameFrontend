@@ -1,24 +1,27 @@
-*{
+* {
     user-select: none;
 }
 
-body{
+body {
     background-color: white;
     margin: 0;
 }
-#gameView{
+
+#gameView {
     text-align: center;
     box-sizing: border-box;
     padding: 1em;
     overflow: auto;
     height: calc(100vh - 5em);
 }
-#footer{
+
+#footer {
     box-sizing: border-box;
     height: 5em;
     padding: 0em 1em 1em 1em;
 }
-.pageSelectOuter{
+
+.pageSelectOuter {
     box-sizing: border-box;
     float: left;
     width: 33%;
@@ -26,7 +29,8 @@ body{
     text-align: center;
     height: 100%;
 }
-.pageSelect{
+
+.pageSelect {
     box-sizing: border-box;
     background-color: white;
     display: inline-flexbox;
@@ -35,9 +39,41 @@ body{
     border-radius: 999px;
     padding: 0.2em 0 0.2em 0;
 }
-.pageSelected{
+
+.pageSelected {
     box-shadow: 0 0 10px 5px lightblue;
 }
-.pageImg{
+
+.pageImg {
     height: 100%;
+}
+
+.messageBox {
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 999px;
+    position: fixed;
+    bottom: -3em;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 10px 5px lightblue;
+    margin: auto;
+    width: fit-content;
+    padding: 0.5em;
+    font: 1.5em sans-serif;
+    transition: bottom 0.25s ease-in;
+}
+
+.messageBoxActive {
+    bottom: 4em;
+    animation: 0.5s ease-in 3s hideMessageBox forwards;
+}
+
+@keyframes hideMessageBox {
+    from {
+        bottom: 4em;
+    }
+    to {
+        bottom: -3em;
+    }
 }

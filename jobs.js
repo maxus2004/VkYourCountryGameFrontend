@@ -1,4 +1,4 @@
-var jobs = [
+var tasks = [
     { name: 'Сдавать металлолом', cost: 0, reward: 50, rewardDelay: 0, repeating: false },
     { name: 'Попрошайничать', cost: 0, reward: 50, rewardDelay: 0, repeating: false },
     { name: 'Работать на складе', cost: 0, reward: 5000, rewardDelay: 3, repeating: false },
@@ -22,8 +22,8 @@ function numDaysToText(num) {
 function loadJobs() {
     var jobsNode = document.getElementById('upgrades');
 
-    for(let i = 0;i<jobs.length;i++){
-        let job = jobs[i];
+    for(let i = 0;i<tasks.length;i++){
+        let job = tasks[i];
         var jobNode = document.createElement('div');
         jobNode.className = 'infoBox';
         var jobNameNode = document.createElement('p');

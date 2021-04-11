@@ -5,24 +5,26 @@ async function loadPlayerData() {
     userInfo = await bridge.send('VKWebAppGetUserInfo');
     document.getElementById('name').innerText = userInfo.first_name + ' ' + userInfo.last_name;
     document.getElementById('userPicture').src = userInfo.photo_200;
-    let request = await fetch('https://servermaksa.tk/yourcountryserver/getUser'+location.search);
+    let request = await fetch('https://servermaksa.tk/yourcountryserver/getUser' + location.search);
     playerData = await request.json();
-    document.getElementById('money').innerText = playerData.money+"₽";
-    document.getElementById('day').innerText = playerData.days;
-    document.getElementById('moneyTasks').innerText = playerData.money+"₽";
-    document.getElementById('dayTasks').innerText = playerData.days;
 
-    console.log(playerData);
+    updatePlayerInfo();
 }
 
-async function doJob(jobId){
-    let request = await fetch('https://servermaksa.tk/yourcountryserver/doTask'+location.search+'&taskId='+jobId);
+async function doJob(taskId) {
+    if (tasks[taskId] < playerData.money) {
+        return;
+    }
+
+    let request = await fetch('https://servermaksa.tk/yourcountryserver/doTask' + location.search + '&taskId=' + taskId);
     result = await request.json();
 
-    document.getElementById('money').innerText = result.money+"₽";
-    document.getElementById('day').innerText = result.days;
-    document.getElementById('moneyTasks').innerText = result.money+"₽";
-    document.getElementById('dayTasks').innerText = result.days;
+    playerData.money = result.money;
+    playerData.days = result.days;
 
-    console.log(result);
+    updatePlayerInfo();
+
+    if (result.failed) {
+        showMessage('Задание не удалось');
+    }
 }

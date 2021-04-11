@@ -1,7 +1,7 @@
 var bridge = vkBridge;
 bridge.send('VKWebAppInit');
 
-window.onload = function () {
+window.onload = function() {
     loadJobs();
     loadPlayerData();
 }
@@ -15,4 +15,17 @@ function setPage(page) {
     }
     document.getElementById(page).style.display = 'block';
     document.getElementById(page + 'Select').classList.add('pageSelected');
+}
+
+function updatePlayerInfo() {
+    document.getElementById('money').innerText = playerData.money + "₽";
+    document.getElementById('day').innerText = playerData.days;
+    document.getElementById('moneyTasks').innerText = playerData.money + "₽";
+    document.getElementById('dayTasks').innerText = playerData.days;
+}
+
+function showMessage(message) {
+    document.getElementById('messageBox').innerText = message;
+    document.getElementById('messageBox').classList.remove('messageBoxActive');
+    setTimeout(function() { document.getElementById('messageBox').classList.add('messageBoxActive') }, 0);
 }
