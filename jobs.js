@@ -7,6 +7,8 @@ var jobs = [
     { name: 'Стать президентом', cost: 100000000, reward: 10000000000, rewardDelay: 365, repeating: false },
 ]
 
+var doingJob = false;
+
 function numDaysToText(num) {
     if (num % 10 == 1) {
         return num + ' день';
@@ -49,5 +51,12 @@ function loadJobs() {
 }
 
 function clickJob(jobId){
+    if(doingJob)return;
+    doingJob = true;
+    setTimeout(function(){stopJobAnimation(jobId)},1000);
     console.log(jobs[jobId].name);
+}
+
+function stopJobAnimation(jobId){
+    console.log('finished '+jobs[jobId].name);
 }
