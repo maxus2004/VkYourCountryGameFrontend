@@ -20,7 +20,8 @@ function numDaysToText(num) {
 function loadJobs() {
     var jobsNode = document.getElementById('upgrades');
 
-    jobs.forEach((job) => {
+    for(let i = 0;i<jobs.length;i++){
+        let job = jobs[i];
         var jobNode = document.createElement('div');
         jobNode.className = 'infoBox';
         var jobNameNode = document.createElement('p');
@@ -42,6 +43,11 @@ function loadJobs() {
                 jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽';
         }
         jobNode.appendChild(jobRewardNode);
+        jobNode.addEventListener('click', doJob(i), false)
         jobsNode.appendChild(jobNode);
-    });
+    };
+}
+
+function doJob(jobId){
+    console.log(jobs[jobId].name);
 }

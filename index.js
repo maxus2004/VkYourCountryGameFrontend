@@ -1,13 +1,7 @@
 var bridge = vkBridge;
 bridge.send('VKWebAppInit');
 
-var pages = {};
-
 window.onload = function () {
-    pages.main = document.getElementById('mainPage');
-    pages.upgrade = document.getElementById('upgradePage');
-    pages.leaderboard = document.getElementById('leaderboardPage');
-
     loadJobs();
     loadPlayerData();
 }
