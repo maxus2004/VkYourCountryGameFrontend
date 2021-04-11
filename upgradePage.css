@@ -16,7 +16,7 @@
 }
 
 .jobAnimating{
-    background: linear-gradient(90deg, lime 50%, transparent 5%);
+    background: linear-gradient(90deg, #00df00 50%, transparent 5%);
     background-size: 200% 200%;
     animation: doJob 1s cubic-bezier(0.77, 0.03, 0.11, 0.98);
 }
