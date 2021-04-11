@@ -16,9 +16,9 @@
 }
 
 .jobAnimating{
+    background: linear-gradient(90deg, lime 0%, transparent 5%);
     animation-duration: 1s;
     animation-name: doJob;
-    background: linear-gradient(90deg, lime 0%, transparent 5%);
 }
 
 @keyframes doJob {
