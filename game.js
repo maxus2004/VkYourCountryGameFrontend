@@ -13,6 +13,7 @@ async function loadPlayerData() {
 
 async function doJob(taskId) {
     if (tasks[taskId] < playerData.money) {
+        showMessage('Мало денег');
         return;
     }
 
