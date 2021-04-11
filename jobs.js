@@ -53,6 +53,10 @@ function loadJobs() {
 
 function clickJob(jobId) {
     if (animatingJob) return;
+    if (tasks[taskId].cost < playerData.money) {
+        showMessage('Мало денег');
+        return;
+    }
     animatingJob = true;
     document.getElementById('upgrades').children[jobId].classList.add('jobAnimating');
     setTimeout(function() { stopJobAnimation(jobId) }, 1000);
