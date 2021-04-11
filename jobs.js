@@ -4,7 +4,7 @@ var tasks = [
     { name: 'Работать на складе', cost: 0, reward: 5000, rewardDelay: 3, repeating: false, failMessages: ['начальник вас обманул'] },
     { name: 'Продавать мороженное', cost: 500, reward: 2000, rewardDelay: 0, repeating: false, failMessages: ['мороженное растаяло и утекло'] },
     { name: 'Открыть магазин', cost: 50000, reward: 200000, rewardDelay: 30, repeating: true, failMessages: ['покупатели не нашлись', 'приехала налоговая инспекция'] },
-    { name: 'Стать президентом', cost: 100000000, reward: 10000000000, rewardDelay: 365, repeating: false, failMessages: ['вас не выбрали'], failMessages: ['голоса подделали'] },
+    { name: 'Стать президентом', cost: 100000000, reward: 10000000000, rewardDelay: 365, repeating: false, failMessages: ['вас не выбрали', 'голоса подделали'] },
 ]
 
 var animatingJob = false;
