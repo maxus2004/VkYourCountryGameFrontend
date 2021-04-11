@@ -53,7 +53,7 @@ function loadJobs() {
 
 function clickJob(taskId) {
     if (animatingJob) return;
-    if (tasks[taskId].cost < playerData.money) {
+    if (tasks[taskId].cost > playerData.money) {
         showMessage('Мало денег');
         return;
     }
