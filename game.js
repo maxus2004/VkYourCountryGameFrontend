@@ -16,5 +16,8 @@ async function doJob(jobId){
     let request = await fetch('https://servermaksa.tk/yourcountryserver/doTask'+location.search+'&taskId='+jobId);
     result = await request.json();
 
+    document.getElementById('money').innerText = result.money+"₽";
+    document.getElementById('day').innerText = result.days;
+
     console.log(result);
 }
