@@ -51,19 +51,19 @@ function loadJobs() {
     };
 }
 
-function clickJob(jobId) {
+function clickJob(taskId) {
     if (animatingJob) return;
     if (tasks[taskId].cost < playerData.money) {
         showMessage('Мало денег');
         return;
     }
     animatingJob = true;
-    document.getElementById('upgrades').children[jobId].classList.add('jobAnimating');
-    setTimeout(function() { stopJobAnimation(jobId) }, 1000);
+    document.getElementById('upgrades').children[taskId].classList.add('jobAnimating');
+    setTimeout(function() { stopJobAnimation(taskId) }, 1000);
 }
 
-function stopJobAnimation(jobId) {
+function stopJobAnimation(taskId) {
     animatingJob = false;
-    document.getElementById('upgrades').children[jobId].classList.remove('jobAnimating');
-    doJob(jobId);
+    document.getElementById('upgrades').children[taskId].classList.remove('jobAnimating');
+    doJob(taskId);
 }
