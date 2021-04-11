@@ -43,11 +43,11 @@ function loadJobs() {
                 jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽';
         }
         jobNode.appendChild(jobRewardNode);
-        jobNode.addEventListener('click', doJob(i), false)
+        jobNode.addEventListener('click', function(){doJob(i)}, false)
         jobsNode.appendChild(jobNode);
     };
 }
 
-function doJob(jobId){
+function jobClickEvent(jobId){
     console.log(jobs[jobId].name);
 }
