@@ -9,6 +9,9 @@ async function loadPlayerData() {
     playerData = await request.json();
     document.getElementById('money').innerText = playerData.money+"₽";
     document.getElementById('day').innerText = playerData.days;
+    document.getElementById('moneyTasks').innerText = playerData.money+"₽";
+    document.getElementById('dayTasks').innerText = playerData.days;
+
     console.log(playerData);
 }
 
