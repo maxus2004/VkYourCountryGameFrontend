@@ -24,9 +24,11 @@
 @keyframes doJob {
     from {
         background: linear-gradient(90deg, lime 0%, transparent 5%);
+        box-shadow: 0 0 10px 5px lightblue;
     }
   
     to {
         background: linear-gradient(90deg, lime 100%, transparent 105%);
+        box-shadow: none;
     }
 }
