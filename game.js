@@ -18,6 +18,8 @@ async function doJob(jobId){
 
     document.getElementById('money').innerText = result.money+"₽";
     document.getElementById('day').innerText = result.days;
+    document.getElementById('moneyTasks').innerText = result.money+"₽";
+    document.getElementById('dayTasks').innerText = result.days;
 
     console.log(result);
 }
