@@ -26,6 +26,7 @@ async function doJob(taskId) {
     updatePlayerInfo();
 
     if (result.failed) {
-        showMessage('Задание не удалось');
+        var message = Math.floor(Math.random() * tasks[taskId].failMassages.length);
+        showMessage(tasks[taskId].failMassages[message]);
     }
 }
