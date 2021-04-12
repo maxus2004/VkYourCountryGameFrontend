@@ -53,7 +53,7 @@ body {
     border: 1px solid gray;
     border-radius: 999px;
     position: fixed;
-    bottom: -3em;
+    bottom: -4em;
     left: 0;
     right: 0;
     box-shadow: 0 0 10px 5px lightblue;
@@ -75,6 +75,6 @@ body {
         bottom: 4em;
     }
     to {
-        bottom: -3em;
+        bottom: -4em;
     }
 }
