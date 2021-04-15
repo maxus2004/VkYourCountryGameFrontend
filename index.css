@@ -2,6 +2,12 @@
     user-select: none;
 }
 
+#betaWarning {
+    font: 2em sans-serif;
+    color: red;
+    margin: 0;
+}
+
 body {
     background-color: white;
     margin: 0;
