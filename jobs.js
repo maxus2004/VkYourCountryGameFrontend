@@ -1,10 +1,10 @@
 var tasks = [
-    { name: 'Сдавать металлолом', cost: 0, reward: 50, repeating = false, rewardInterval: 0, failMessages: ['весь металл разобрали', 'вы потеряли металлолом пока несли его'] },
-    { name: 'Попрошайничать', cost: 0, reward: 50, repeating = false, rewardInterval: 0, failMessages: ['вас отпиздили ауешники', 'вас обокрали цыгане'] },
-    { name: 'Работать на складе', cost: 0, reward: 750, repeating = false, rewardInterval: 0, failMessages: ['начальник вас обманул'] },
-    { name: 'Продавать мороженное', cost: 500, reward: 2000, repeating = false, rewardInterval: 0, failMessages: ['мороженное растаяло и утекло'] },
-    { name: 'Открыть магазин', cost: 50000, reward: 200000, repeating = true, rewardInterval: 30, failMessages: ['покупатели не нашлись', 'приехала налоговая инспекция'] },
-    { name: 'Стать президентом', cost: 100000000, reward: 10000000000, repeating = true, rewardInterval: 365, failMessages: ['вас не выбрали', 'голоса подделали'] },
+    { name: 'Сдавать металлолом', cost: 0, reward: 50, repeating: false, rewardInterval: 0, failMessages: ['весь металл разобрали', 'вы потеряли металлолом пока несли его'] },
+    { name: 'Попрошайничать', cost: 0, reward: 50, repeating: false, rewardInterval: 0, failMessages: ['вас отпиздили ауешники', 'вас обокрали цыгане'] },
+    { name: 'Работать на складе', cost: 0, reward: 750, repeating: false, rewardInterval: 0, failMessages: ['начальник вас обманул'] },
+    { name: 'Продавать мороженное', cost: 500, reward: 2000, repeating: false, rewardInterval: 0, failMessages: ['мороженное растаяло и утекло'] },
+    { name: 'Открыть магазин', cost: 50000, reward: 200000, repeating: true, rewardInterval: 30, failMessages: ['покупатели не нашлись', 'приехала налоговая инспекция'] },
+    { name: 'Стать президентом', cost: 100000000, reward: 10000000000, repeating: true, rewardInterval: 365, failMessages: ['вас не выбрали', 'голоса подделали'] },
 ]
 
 var animatingJob = false;
