@@ -47,24 +47,31 @@ function loadJobs() {
     };
 }
 
-function clickJob(taskId) {
-    let task = tasks[taskId]
+function clickJob(jobId) {
+    let job = tasks[jobId]
     if (animatingJob) return;
-    if (task.cost > playerData.money) {
+    if (job.cost > playerData.money) {
         showMessage('Мало денег');
-        document.getElementById('upgrades').children[taskId].classList.remove('jobNoMoney');
-        void document.getElementById('upgrades').children[taskId].offsetWidth;
-        document.getElementById('upgrades').children[taskId].classList.add('jobNoMoney');
+        document.getElementById('upgrades').children[jobId].classList.remove('jobNoMoney');
+        void document.getElementById('upgrades').children[jobId].offsetWidth;
+        document.getElementById('upgrades').children[jobId].classList.add('jobNoMoney');
+        return;
+    }
+    if (job.repeating && playerData.days - job.started < job.rewardInterval) {
+        showMessage('Работа еще не закончена');
+        document.getElementById('upgrades').children[jobId].classList.remove('jobNoMoney');
+        void document.getElementById('upgrades').children[jobId].offsetWidth;
+        document.getElementById('upgrades').children[jobId].classList.add('jobNoMoney');
         return;
     }
     animatingJob = true;
-    document.getElementById('upgrades').children[taskId].classList.remove('jobAnimating');
-    void document.getElementById('upgrades').children[taskId].offsetWidth;
-    document.getElementById('upgrades').children[taskId].classList.add('jobAnimating');
-    if (!task.repeating) {
-        setTimeout(function() { stopJobAnimation(taskId) }, 1000);
+    document.getElementById('upgrades').children[jobId].classList.remove('jobAnimating');
+    void document.getElementById('upgrades').children[jobId].offsetWidth;
+    document.getElementById('upgrades').children[jobId].classList.add('jobAnimating');
+    if (!job.repeating) {
+        setTimeout(function() { stopJobAnimation(jobId) }, 1000);
     } else {
-        setTimeout(function() { stopRepeatingJobAnimation(taskId) }, 1000);
+        setTimeout(function() { stopRepeatingJobAnimation(jobId) }, 1000);
     }
 }
 
