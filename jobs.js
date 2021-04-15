@@ -37,7 +37,7 @@ function loadJobs() {
         var jobRewardNode = document.createElement('p');
         jobRewardNode.className = 'jobReward';
         if (job.rewardInterval > 0)
-            jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽ каждый ' + numDaysToText(job.rewardInterval);
+            jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽ каждый ' + job.rewardInterval + 'й день';
         else
             jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽';
         jobNode.appendChild(jobRewardNode);
