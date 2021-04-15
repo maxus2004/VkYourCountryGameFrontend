@@ -1,10 +1,10 @@
 var tasks = [
-    { name: 'Сдавать металлолом', cost: 0, reward: 50, rewardInterval: 0, failMessages: ['весь металл разобрали', 'вы потеряли металлолом пока несли его'] },
-    { name: 'Попрошайничать', cost: 0, reward: 50, rewardInterval: 0, failMessages: ['вас отпиздили ауешники', 'вас обокрали цыгане'] },
-    { name: 'Работать на складе', cost: 0, reward: 5000, rewardInterval: 0, failMessages: ['начальник вас обманул'] },
-    { name: 'Продавать мороженное', cost: 500, reward: 2000, rewardInterval: 0, failMessages: ['мороженное растаяло и утекло'] },
-    { name: 'Открыть магазин', cost: 50000, reward: 200000, rewardInterval: 30, failMessages: ['покупатели не нашлись', 'приехала налоговая инспекция'] },
-    { name: 'Стать президентом', cost: 100000000, reward: 10000000000, rewardInterval: 365, failMessages: ['вас не выбрали', 'голоса подделали'] },
+    { name: 'Сдавать металлолом', cost: 0, reward: 50, repeating = false, rewardInterval: 0, failMessages: ['весь металл разобрали', 'вы потеряли металлолом пока несли его'] },
+    { name: 'Попрошайничать', cost: 0, reward: 50, repeating = false, rewardInterval: 0, failMessages: ['вас отпиздили ауешники', 'вас обокрали цыгане'] },
+    { name: 'Работать на складе', cost: 0, reward: 750, repeating = false, rewardInterval: 0, failMessages: ['начальник вас обманул'] },
+    { name: 'Продавать мороженное', cost: 500, reward: 2000, repeating = false, rewardInterval: 0, failMessages: ['мороженное растаяло и утекло'] },
+    { name: 'Открыть магазин', cost: 50000, reward: 200000, repeating = true, rewardInterval: 30, failMessages: ['покупатели не нашлись', 'приехала налоговая инспекция'] },
+    { name: 'Стать президентом', cost: 100000000, reward: 10000000000, repeating = true, rewardInterval: 365, failMessages: ['вас не выбрали', 'голоса подделали'] },
 ]
 
 var animatingJob = false;
@@ -36,9 +36,9 @@ function loadJobs() {
         jobNode.appendChild(jobCostNode);
         var jobRewardNode = document.createElement('p');
         jobRewardNode.className = 'jobReward';
-        if (job.rewardInterval > 0)
+        if (job.repeating) {
             jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽ каждый ' + job.rewardInterval + 'й день';
-        else
+        } else
             jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽';
         jobNode.appendChild(jobRewardNode);
         jobNode.addEventListener('click', function() { clickJob(i) })
@@ -48,8 +48,9 @@ function loadJobs() {
 }
 
 function clickJob(taskId) {
+    let task = tasks[taskId]
     if (animatingJob) return;
-    if (tasks[taskId].cost > playerData.money) {
+    if (task.cost > playerData.money) {
         showMessage('Мало денег');
         document.getElementById('upgrades').children[taskId].classList.remove('jobNoMoney');
         void document.getElementById('upgrades').children[taskId].offsetWidth;
@@ -58,7 +59,16 @@ function clickJob(taskId) {
     }
     animatingJob = true;
     document.getElementById('upgrades').children[taskId].classList.add('jobAnimating');
-    setTimeout(function() { stopJobAnimation(taskId) }, 1000);
+    if (!task.repeating) {
+        setTimeout(function() { stopJobAnimation(taskId) }, 1000);
+    } else {
+        setTimeout(function() { stopRepeatingJobAnimation(taskId) }, 1000);
+    }
+}
+
+function stopRepeatingJobAnimation(taskId) {
+    animatingJob = false;
+    doJob(taskId);
 }
 
 function stopJobAnimation(taskId) {
