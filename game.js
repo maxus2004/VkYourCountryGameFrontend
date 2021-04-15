@@ -25,3 +25,7 @@ async function doJob(taskId) {
         showMessage(tasks[taskId].failMessages[message]);
     }
 }
+
+async function cancelJob() {
+
+}

@@ -60,10 +60,11 @@ function clickJob(jobId) {
         return;
     }
 
-    if (job.repeating && playerData.days - job.started < job.rewardInterval) {
+    if (job.repeating && job.active) {
         showMessage('Работа отменена');
+        job.active = false;
+        cancelJob();
         jobNode.classList.remove('jobAnimating');
-        //void jobNode.offsetWidth;
         jobNode.classList.add('jobCancel');
         setTimeout(function() { jobNode.classList.remove('jobCancel') }, 300);
         return;
@@ -78,7 +79,7 @@ function clickJob(jobId) {
             doJob(jobId);
         }, 1000);
     } else {
-        job.started = playerData.days;
+        job.active = true;
         setTimeout(function() {
             animatingJob = false;
             doJob(jobId);
