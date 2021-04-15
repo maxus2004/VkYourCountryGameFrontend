@@ -49,40 +49,39 @@ function loadJobs() {
 
 function clickJob(jobId) {
     let job = tasks[jobId]
+    let jobNode = document.getElementById('upgrades').children[jobId];
+
     if (animatingJob) return;
+
     if (job.cost > playerData.money) {
         showMessage('Мало денег');
-        document.getElementById('upgrades').children[jobId].classList.remove('jobNoMoney');
-        void document.getElementById('upgrades').children[jobId].offsetWidth;
-        document.getElementById('upgrades').children[jobId].classList.add('jobNoMoney');
+        jobNode.classList.add('jobNoMoney');
+        setTimeout(function() { jobNode.classList.remove('jobNoMoney') }, 300);
         return;
     }
+
     if (job.repeating && playerData.days - job.started < job.rewardInterval) {
-        showMessage('Работа еще не закончена');
-        document.getElementById('upgrades').children[jobId].classList.remove('jobNoMoney');
-        void document.getElementById('upgrades').children[jobId].offsetWidth;
-        document.getElementById('upgrades').children[jobId].classList.add('jobNoMoney');
+        showMessage('Работа отменена');
+        jobNode.classList.remove('jobAnimating');
+        //void jobNode.offsetWidth;
+        jobNode.classList.add('jobCancel');
+        setTimeout(function() { jobNode.classList.remove('jobCancel') }, 300);
         return;
     }
+
     animatingJob = true;
-    document.getElementById('upgrades').children[jobId].classList.remove('jobAnimating');
-    void document.getElementById('upgrades').children[jobId].offsetWidth;
-    document.getElementById('upgrades').children[jobId].classList.add('jobAnimating');
+    jobNode.classList.add('jobAnimating');
     if (!job.repeating) {
-        setTimeout(function() { stopJobAnimation(jobId) }, 1000);
+        setTimeout(function() {
+            animatingJob = false;
+            jobNode.classList.remove('jobAnimating');
+            doJob(jobId);
+        }, 1000);
     } else {
         job.started = playerData.days;
-        setTimeout(function() { stopRepeatingJobAnimation(jobId) }, 1000);
+        setTimeout(function() {
+            animatingJob = false;
+            doJob(jobId);
+        }, 1000);
     }
-}
-
-function stopRepeatingJobAnimation(taskId) {
-    animatingJob = false;
-    doJob(taskId);
-}
-
-function stopJobAnimation(taskId) {
-    animatingJob = false;
-    document.getElementById('upgrades').children[taskId].classList.remove('jobAnimating');
-    doJob(taskId);
 }

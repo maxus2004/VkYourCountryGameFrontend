@@ -27,6 +27,22 @@
     animation: doJobNoMoney 0.3s linear;
 }
 
+.jobCancel {
+    animation: doJobCancel 0.3s linear;
+}
+
+@keyframes doJobCancel {
+    from {
+        background-color: transparent;
+    }
+    50% {
+        background-color: #00df00;
+    }
+    to {
+        background-color: transparent;
+    }
+}
+
 @keyframes doJobNoMoney {
     from {
         background-color: transparent;
