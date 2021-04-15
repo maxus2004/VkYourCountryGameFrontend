@@ -26,6 +26,6 @@ async function doJob(taskId) {
     }
 }
 
-async function cancelJob() {
+async function cancelJob(taskId) {
     await fetch('https://servermaksa.tk/yourcountryserver/cancelTask' + location.search + '&taskId=' + taskId);
 }

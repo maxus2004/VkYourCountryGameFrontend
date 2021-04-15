@@ -63,7 +63,7 @@ function clickJob(jobId) {
     if (job.repeating && job.active) {
         showMessage('Работа отменена');
         job.active = false;
-        cancelJob();
+        cancelJob(jobId);
         jobNode.classList.remove('jobAnimating');
         jobNode.classList.add('jobCancel');
         setTimeout(function() { jobNode.classList.remove('jobCancel') }, 300);
