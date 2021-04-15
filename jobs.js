@@ -4,7 +4,7 @@ var tasks = [
     { name: 'Работать на складе', cost: 250, reward: 2000, repeating: false, rewardInterval: 0, failMessages: ['начальник вас обманул'] },
     { name: 'Продавать мороженное', cost: 500, reward: 2000, repeating: false, rewardInterval: 0, failMessages: ['мороженное растаяло и утекло'] },
     { name: 'Чинить компьютеры', cost: 5000, reward: 30000, repeating: false, rewardInterval: 0, failMessages: ['бабка воткнула USB наоборот', 'комп забрали, а деньги не дали'] },
-    { name: 'Открыть магазин', cost: 100000, reward: 200000, repeating: true, rewardInterval: 30, failMessages: ['покупатели не нашлись', 'приехала налоговая инспекция'] },
+    { name: 'Открыть магазин', cost: 100000, reward: 200000, repeating: true, rewardInterval: 10, failMessages: ['покупатели не нашлись', 'приехала налоговая инспекция'] },
     { name: 'Стать президентом', cost: 100000000, reward: 10000000000, repeating: true, rewardInterval: 365, failMessages: ['вас не выбрали', 'голоса подделали'] },
 ]
 
