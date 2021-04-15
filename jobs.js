@@ -71,6 +71,7 @@ function clickJob(jobId) {
     if (!job.repeating) {
         setTimeout(function() { stopJobAnimation(jobId) }, 1000);
     } else {
+        job.started = playerData.days;
         setTimeout(function() { stopRepeatingJobAnimation(jobId) }, 1000);
     }
 }
