@@ -14,7 +14,7 @@ async function loadPlayerData() {
 async function doJob(taskId) {
     let request = await fetch('https://servermaksa.tk/yourcountryserver/doTask' + location.search + '&taskId=' + taskId);
     result = await request.json();
-    playerData = result.playerData;
+    playerData = result.playerData.json();
     updatePlayerInfo();
 
     if (result.failed) {
