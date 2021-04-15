@@ -65,7 +65,6 @@ function clickJob(jobId) {
         job.active = false;
         cancelJob();
         jobNode.classList.remove('jobAnimating');
-        void jobNode.offsetWidth;
         jobNode.classList.add('jobCancel');
         setTimeout(function() { jobNode.classList.remove('jobCancel') }, 300);
         return;
