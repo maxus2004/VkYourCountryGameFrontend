@@ -58,6 +58,8 @@ function clickJob(taskId) {
         return;
     }
     animatingJob = true;
+    document.getElementById('upgrades').children[taskId].classList.remove('jobAnimating');
+    void document.getElementById('upgrades').children[taskId].offsetWidth;
     document.getElementById('upgrades').children[taskId].classList.add('jobAnimating');
     if (!task.repeating) {
         setTimeout(function() { stopJobAnimation(taskId) }, 1000);
