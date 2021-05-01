@@ -1,9 +1,11 @@
 .jobBox {
+    font: 1em sans-serif;
     text-align: left;
     border: 1px solid gray;
     border-radius: 2em;
     padding: 0.5em 1em 0.5em 1em;
     margin: 0.5em 0 0.5em 0;
+    background-color: #DDDDDD;
 }
 
 .jobName {
@@ -13,13 +15,11 @@
 }
 
 .jobCost {
-    font: 1em sans-serif;
     margin: 0;
     text-align: right;
 }
 
 .jobReward {
-    font: 1em sans-serif;
     color: gray;
     margin: 0;
     text-align: right;
