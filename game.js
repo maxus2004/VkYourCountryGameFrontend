@@ -4,7 +4,7 @@ var access_token;
 var server_access_string;
 
 async function loadPlayerData() {
-    server_access_string = server_access_string;
+    server_access_string = location.search;
     access_token = (await bridge.send("VKWebAppGetAuthToken", { "app_id": 7811492, "scope": "" })).access_token;
     userInfo = await bridge.send('VKWebAppGetUserInfo');
     document.getElementById('name').innerText = userInfo.first_name + ' ' + userInfo.last_name;
