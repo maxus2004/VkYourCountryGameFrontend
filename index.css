@@ -86,5 +86,5 @@ body {
 }
 
 .clickable {
-    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: -0.5em -0.5em 1em 0px rgba(173, 216, 230, 0.5) inset;
 }
