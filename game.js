@@ -36,6 +36,9 @@ async function becomeSlave(owner) {
 async function getFree() {
     let request = await fetch('https://servermaksa.tk/yourcountryserver/getFree' + server_access_string);
     playerData = await request.json();
+    if (playerData.owner == null) {
+        showMessage('Вы свободны!');
+    }
     updatePlayerInfo();
     updateOwnerInfo();
 }

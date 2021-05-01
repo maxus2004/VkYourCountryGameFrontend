@@ -5,6 +5,7 @@ bridge.send('VKWebAppInit');
 window.onload = function() {
     loadJobs();
     loadPlayerData();
+    document.getElementById('getFreeBtn').addEventListener('click', clickGetFree);
 }
 
 function setPage(page) {

@@ -94,3 +94,10 @@ function clickJob(jobId) {
         }, 1000);
     }
 }
+
+function clickGetFree() {
+    if (playerData.money < 1000000) {
+        showMessage('Мало денег');
+    }
+    getFree();
+}
