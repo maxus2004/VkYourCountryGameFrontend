@@ -19,7 +19,7 @@ async function loadPlayerData() {
 async function doJob(taskId) {
 
     if (taskId == 0) {
-        var platform = new URLSearchParams(location.search)['vk_platform'];
+        var platform = new URLSearchParams(location.search).get('vk_platform');
         if (platform != 'mobile_android' && platform != 'mobile_ipad' && platform != 'mobile_iphone') {
             showMessage(tasks[taskId].failMessages[0]);
             return;
