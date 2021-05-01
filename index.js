@@ -34,6 +34,20 @@ function updatePlayerInfo() {
     document.getElementById('day').innerText = playerData.days;
     document.getElementById('moneyTasks').innerText = playerData.money + "₽";
     document.getElementById('dayTasks').innerText = playerData.days;
+
+    var status = ''
+
+    if (playerData.money < 10000) status = 'бомж'
+    else if (playerData.money < 100000) status = 'бедный'
+    else if (playerData.money < 1000000) status = 'на новый комп хватит'
+    else if (playerData.money < 1000000000) status = 'миллионер'
+    else status = 'царь всея руси'
+
+    if (playerData.owner != null) {
+        document.getElementById('status').innerText = 'раб ' + status;
+    } else {
+        document.getElementById('status').innerText = status;
+    }
 }
 
 function showMessage(message) {
