@@ -9,6 +9,7 @@ async function loadPlayerData() {
     result = await request.json();
     playerData = result.playerData;
     result.activeTasks.forEach(taskId => {
+        tasks[jobId].active = true;
         document.getElementById('upgrades').children[taskId].classList.add('jobActive');
     });
 
