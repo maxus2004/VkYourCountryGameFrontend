@@ -15,7 +15,11 @@ async function doJob(taskId) {
 
     if (taskId == 0) {
         var result = await bridge.send("VKWebAppShowNativeAds", { ad_format: "preloader" })
-        showMessage(result.result)
+        if (result.result == false) {
+            var message = Math.floor(Math.random() * tasks[taskId].failMessages.length);
+            showMessage(tasks[taskId].failMessages[message]);
+            return;
+        }
     }
 
     let request = await fetch('https://servermaksa.tk/yourcountryserver/doTask' + location.search + '&taskId=' + taskId);
