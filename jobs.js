@@ -57,7 +57,7 @@ function clickJob(jobId) {
 
     if (animatingJob) return;
 
-    if (job.cost > playerData.money) {
+    if (!job.active && job.cost > playerData.money) {
         showMessage('Мало денег');
         jobNode.classList.add('jobNoMoney');
         setTimeout(function() { jobNode.classList.remove('jobNoMoney') }, 300);
