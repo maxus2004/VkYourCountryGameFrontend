@@ -1,3 +1,11 @@
+.jobBox {
+    text-align: left;
+    border: 1px solid gray;
+    border-radius: 999px;
+    padding: 0.5em 1em 0.5em 1em;
+    margin: 0.5em 0 0.5em 0;
+}
+
 .jobName {
     font: 1em sans-serif;
     margin: 0;
@@ -17,10 +25,20 @@
     text-align: right;
 }
 
-.jobAnimating {
+.jobClicked {
+    transition: all 0s linear;
     background: linear-gradient(90deg, #00df00 50%, transparent 5%);
     background-size: 200% 200%;
-    animation: doJob 1s cubic-bezier(0.77, 0.03, 0.11, 0.98);
+    background-position: 100% 50%;
+    box-shadow: 0 0 10px 5px lightblue;
+}
+
+.jobActive {
+    transition: all 1s cubic-bezier(0.77, 0.03, 0.11, 0.98);
+    background: linear-gradient(90deg, #00df00 50%, transparent 5%);
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    box-shadow: none;
 }
 
 .jobNoMoney {

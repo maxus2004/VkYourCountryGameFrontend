@@ -27,7 +27,7 @@ function loadJobs() {
     for (let i = 0; i < tasks.length; i++) {
         let job = tasks[i];
         var jobNode = document.createElement('div');
-        jobNode.className = 'infoBox';
+        jobNode.className = 'jobBox';
         var jobNameNode = document.createElement('p');
         jobNameNode.className = 'jobName';
         jobNameNode.innerText = job.name;
@@ -47,7 +47,6 @@ function loadJobs() {
         }
         jobNode.appendChild(jobRewardNode);
         jobNode.addEventListener('click', function() { clickJob(i) })
-        jobNode.addEventListener('transitionend', function() { stopJobAnimation(i) })
         jobsNode.appendChild(jobNode);
     };
 }
@@ -69,18 +68,22 @@ function clickJob(jobId) {
         showMessage('Работа отменена');
         job.active = false;
         cancelJob(jobId);
-        jobNode.classList.remove('jobAnimating');
+        jobNode.classList.remove('jobActive');
+        jobNode.classList.remove('jobClicked');
         jobNode.classList.add('jobCancel');
         setTimeout(function() { jobNode.classList.remove('jobCancel') }, 300);
         return;
     }
 
     animatingJob = true;
-    jobNode.classList.add('jobAnimating');
+    jobNode.classList.add('jobClicked');
+    void jobNode.offsetWidth;
+    jobNode.classList.add('jobActive');
     if (!job.repeating) {
         setTimeout(function() {
             animatingJob = false;
-            jobNode.classList.remove('jobAnimating');
+            jobNode.classList.remove('jobActive');
+            jobNode.classList.remove('jobClicked');
             doJob(jobId);
         }, 1000);
     } else {
