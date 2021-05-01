@@ -18,7 +18,7 @@ function setPage(page) {
     document.getElementById(page + 'Select').classList.add('pageSelected');
 }
 
-function updateOwnerInfo() {
+async function updateOwnerInfo() {
     var ownerNameRequest = await bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": playerData.ownerId, "v": "5.130", "access_token": access_token, 'name_case': 'gen' } });
     document.getElementById('slaveInfo').style = "";
     document.getElementById('ownerId').href = "https://vk.com/id" + playerData.ownerId;
