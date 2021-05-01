@@ -1,4 +1,5 @@
 var tasks = [
+    { name: 'Посмотреть рекламу', cost: 0, reward: 0, repeating: false, rewardInterval: 0, failMessages: ['не удалось загрузить рекламу'] },
     { name: 'Сдавать металлолом', cost: 0, reward: 50, repeating: false, rewardInterval: 0, failMessages: ['весь металл разобрали', 'вы потеряли металлолом пока несли его'] },
     { name: 'Попрошайничать', cost: 0, reward: 50, repeating: false, rewardInterval: 0, failMessages: ['вас отпиздили ауешники', 'вас обокрали цыгане'] },
     { name: 'Работать на складе', cost: 250, reward: 2000, repeating: false, rewardInterval: 0, failMessages: ['начальник вас обманул'] },
@@ -37,10 +38,13 @@ function loadJobs() {
         jobNode.appendChild(jobCostNode);
         var jobRewardNode = document.createElement('p');
         jobRewardNode.className = 'jobReward';
-        if (job.repeating) {
+        if (i == 0) {
+            jobRewardNode.innerText = '+10% от всех денег';
+        } else if (job.repeating) {
             jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽ каждый ' + job.rewardInterval + 'й день';
-        } else
+        } else {
             jobRewardNode.innerText = 'Выгода: ' + job.reward + '₽';
+        }
         jobNode.appendChild(jobRewardNode);
         jobNode.addEventListener('click', function() { clickJob(i) })
         jobNode.addEventListener('transitionend', function() { stopJobAnimation(i) })
