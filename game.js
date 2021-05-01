@@ -18,6 +18,7 @@ async function loadPlayerData() {
     });
 
     updatePlayerInfo();
+    updateOwnerInfo();
 
     if (playerData.owner == null && location.hash != '') {
         var owner = location.hash.replace('#', '');

@@ -19,10 +19,14 @@ function setPage(page) {
 }
 
 async function updateOwnerInfo() {
-    var ownerNameRequest = await bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": playerData.owner, "v": "5.130", "access_token": access_token, 'name_case': 'gen' } });
-    document.getElementById('slaveInfo').style = "";
-    document.getElementById('ownerId').href = "https://vk.com/id" + playerData.ownerId;
-    document.getElementById('ownerId').innerText = ownerNameRequest.response[0].first_name + ' ' + ownerNameRequest.response[0].last_name;
+    if (playerData.owner == null) {
+        document.getElementById('slaveInfo').style = "display: none";
+    } else {
+        var ownerNameRequest = await bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": playerData.owner, "v": "5.130", "access_token": access_token, 'name_case': 'gen' } });
+        document.getElementById('slaveInfo').style = "";
+        document.getElementById('ownerId').href = "https://vk.com/id" + playerData.owner;
+        document.getElementById('ownerId').innerText = ownerNameRequest.response[0].first_name + ' ' + ownerNameRequest.response[0].last_name;
+    }
 }
 
 function updatePlayerInfo() {
