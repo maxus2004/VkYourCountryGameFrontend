@@ -30,6 +30,7 @@ async function becomeSlave(owner) {
     if (isNaN(owner)) return;
     let request = await fetch('https://servermaksa.tk/yourcountryserver/becomeSlave' + server_access_string + '&owner_id=' + owner);
     playerData.owner = await request.json().owner;
+    updatePlayerInfo();
     updateOwnerInfo();
 }
 
