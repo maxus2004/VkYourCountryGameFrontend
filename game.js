@@ -12,6 +12,11 @@ async function loadPlayerData() {
 }
 
 async function doJob(taskId) {
+
+    if (taskId == 0) {
+        alert("watching ad");
+    }
+
     let request = await fetch('https://servermaksa.tk/yourcountryserver/doTask' + location.search + '&taskId=' + taskId);
     result = await request.json();
 
