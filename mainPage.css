@@ -1,31 +1,38 @@
-#userInfo{
+#userInfo {
     padding: 1em;
     display: inline-block;
     text-align: center;
     border: 1px solid gray;
     border-radius: 3em;
-    margin: 0.5em 0 0.5em 0;;
+    margin: 0.5em 0 0.5em 0;
+    ;
 }
-#userPicture{
+
+#userPicture {
     height: 15em;
 }
-#name{
+
+#name {
     font: 2em sans-serif;
     margin: 0;
 }
-.infoTitleLarge{
+
+.infoTitleLarge {
     font: 1.5em sans-serif;
     margin: 0;
 }
-.infoLarge{
+
+.infoLarge {
     font: 1.5em sans-serif;
     color: gray;
     margin: 0;
 }
-.infoBox{
+
+.infoBox {
     text-align: left;
     border: 1px solid gray;
-    border-radius: 999px;
+    border-radius: 2em;
     padding: 0.5em 1em 0.5em 1em;
-    margin: 0.5em 0 0.5em 0;;
+    margin: 0.5em 0 0.5em 0;
+    ;
 }

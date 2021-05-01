@@ -1,7 +1,7 @@
 .jobBox {
     text-align: left;
     border: 1px solid gray;
-    border-radius: 999px;
+    border-radius: 2em;
     padding: 0.5em 1em 0.5em 1em;
     margin: 0.5em 0 0.5em 0;
 }
