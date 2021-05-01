@@ -27,7 +27,7 @@ function loadJobs() {
     for (let i = 0; i < tasks.length; i++) {
         let job = tasks[i];
         var jobNode = document.createElement('div');
-        jobNode.className = 'jobBox';
+        jobNode.className = 'jobBox clickable';
         var jobNameNode = document.createElement('p');
         jobNameNode.className = 'jobName';
         jobNameNode.innerText = job.name;
