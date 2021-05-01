@@ -1,13 +1,15 @@
 var userInfo;
 var playerData;
 var access_token;
+var server_access_string;
 
 async function loadPlayerData() {
+    server_access_string = server_access_string;
     access_token = (await bridge.send("VKWebAppGetAuthToken", { "app_id": 7811492, "scope": "" })).access_token;
     userInfo = await bridge.send('VKWebAppGetUserInfo');
     document.getElementById('name').innerText = userInfo.first_name + ' ' + userInfo.last_name;
     document.getElementById('userPicture').src = userInfo.photo_200;
-    let request = await fetch('https://servermaksa.tk/yourcountryserver/getUser' + location.search);
+    let request = await fetch('https://servermaksa.tk/yourcountryserver/getUser' + server_access_string);
     result = await request.json();
     playerData = result.playerData;
     result.activeTasks.forEach(taskId => {
@@ -25,13 +27,13 @@ async function loadPlayerData() {
 
 async function becomeSlave(ownerId) {
     if (isNaN(ownerId)) return;
-    let request = await fetch('https://servermaksa.tk/yourcountryserver/becomeSlave' + location.search + '&owner_id=' + ownerId);
+    let request = await fetch('https://servermaksa.tk/yourcountryserver/becomeSlave' + server_access_string + '&owner_id=' + ownerId);
     playerData.ownerId = await request.json();
     updateOwnerInfo();
 }
 
 async function getFree() {
-    let request = await fetch('https://servermaksa.tk/yourcountryserver/getFree' + location.search);
+    let request = await fetch('https://servermaksa.tk/yourcountryserver/getFree' + server_access_string);
     playerData = await request.json();
     updatePlayerInfo();
     updateOwnerInfo();
@@ -40,7 +42,7 @@ async function getFree() {
 async function doJob(taskId) {
 
     if (taskId == 0) {
-        var platform = new URLSearchParams(location.search).get('vk_platform');
+        var platform = new URLSearchParams(server_access_string).get('vk_platform');
         if (platform != 'mobile_android' && platform != 'mobile_ipad' && platform != 'mobile_iphone') {
             showMessage(tasks[taskId].failMessages[0]);
             return;
@@ -52,7 +54,7 @@ async function doJob(taskId) {
         }
     }
 
-    let request = await fetch('https://servermaksa.tk/yourcountryserver/doTask' + location.search + '&taskId=' + taskId);
+    let request = await fetch('https://servermaksa.tk/yourcountryserver/doTask' + server_access_string + '&taskId=' + taskId);
     result = await request.json();
 
 
@@ -69,5 +71,5 @@ async function doJob(taskId) {
 }
 
 async function cancelJob(taskId) {
-    await fetch('https://servermaksa.tk/yourcountryserver/cancelTask' + location.search + '&taskId=' + taskId);
+    await fetch('https://servermaksa.tk/yourcountryserver/cancelTask' + server_access_string + '&taskId=' + taskId);
 }
