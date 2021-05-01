@@ -1,5 +1,5 @@
 var tasks = [
-    { name: 'Посмотреть рекламу', cost: 0, reward: 0, repeating: false, rewardInterval: 0, failMessages: ['не удалось загрузить рекламу'] },
+    { name: 'Посмотреть рекламу', cost: 0, reward: 0, repeating: false, rewardInterval: 0, failMessages: ['смотреть рекламу можно только в мобильном приложении ВК', 'не удалось показать рекламу'] },
     { name: 'Сдавать металлолом', cost: 0, reward: 50, repeating: false, rewardInterval: 0, failMessages: ['весь металл разобрали', 'вы потеряли металлолом пока несли его'] },
     { name: 'Попрошайничать', cost: 0, reward: 50, repeating: false, rewardInterval: 0, failMessages: ['вас отпиздили ауешники', 'вас обокрали цыгане'] },
     { name: 'Работать на складе', cost: 250, reward: 2000, repeating: false, rewardInterval: 0, failMessages: ['начальник вас обманул'] },

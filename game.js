@@ -19,10 +19,14 @@ async function loadPlayerData() {
 async function doJob(taskId) {
 
     if (taskId == 0) {
+        var platform = new URLSearchParams(location.search)['vk_platform'];
+        if (platform != 'mobile_android' && platform != 'mobile_ipad' && platform != 'mobile_iphone') {
+            showMessage(tasks[taskId].failMessages[0]);
+            return;
+        }
         var result = await bridge.send("VKWebAppShowNativeAds", { ad_format: "reward" })
         if (result.result == false) {
-            var message = Math.floor(Math.random() * tasks[taskId].failMessages.length);
-            showMessage(tasks[taskId].failMessages[message]);
+            showMessage(tasks[taskId].failMessages[1]);
             return;
         }
     }
