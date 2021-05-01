@@ -14,7 +14,9 @@ async function loadPlayerData() {
 async function doJob(taskId) {
 
     if (taskId == 0) {
-        alert("watching ad");
+        bridge.send("VKWebAppShowNativeAds", { ad_format: "preloader" })
+            .then(data => console.log(data.result))
+            .catch(error => console.log(error));
     }
 
     let request = await fetch('https://servermaksa.tk/yourcountryserver/doTask' + location.search + '&taskId=' + taskId);
