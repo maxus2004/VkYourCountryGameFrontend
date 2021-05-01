@@ -20,15 +20,15 @@ async function loadPlayerData() {
     updatePlayerInfo();
 
     if (playerData.owner == null && location.hash != '') {
-        var ownerId = location.hash.replace('#', '');
-        becomeSlave(ownerId);
+        var owner = location.hash.replace('#', '');
+        becomeSlave(owner);
     }
 }
 
-async function becomeSlave(ownerId) {
-    if (isNaN(ownerId)) return;
-    let request = await fetch('https://servermaksa.tk/yourcountryserver/becomeSlave' + server_access_string + '&owner_id=' + ownerId);
-    playerData.ownerId = await request.json();
+async function becomeSlave(owner) {
+    if (isNaN(owner)) return;
+    let request = await fetch('https://servermaksa.tk/yourcountryserver/becomeSlave' + server_access_string + '&owner_id=' + owner);
+    playerData.owner = await request.json();
     updateOwnerInfo();
 }
 
