@@ -1,4 +1,5 @@
 var bridge = vkBridge;
+
 bridge.send('VKWebAppInit');
 
 window.onload = function() {
@@ -15,6 +16,13 @@ function setPage(page) {
     }
     document.getElementById(page).style.display = 'block';
     document.getElementById(page + 'Select').classList.add('pageSelected');
+}
+
+function updateOwnerInfo() {
+    var ownerNameRequest = await bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": playerData.ownerId, "v": "5.130", "access_token": access_token, 'name_case': 'gen' } });
+    document.getElementById('slaveInfo').style = "";
+    document.getElementById('ownerId').href = "https://vk.com/id" + playerData.ownerId;
+    document.getElementById('ownerId').innerText = ownerNameRequest.response[0].first_name + ' ' + ownerNameRequest.response[0].last_name;
 }
 
 function updatePlayerInfo() {

@@ -1,7 +1,9 @@
 var userInfo;
 var playerData;
+var access_token;
 
 async function loadPlayerData() {
+    access_token = (await bridge.send("VKWebAppGetAuthToken", { "app_id": 7811492, "scope": "" })).access_token;
     userInfo = await bridge.send('VKWebAppGetUserInfo');
     document.getElementById('name').innerText = userInfo.first_name + ' ' + userInfo.last_name;
     document.getElementById('userPicture').src = userInfo.photo_200;
@@ -14,6 +16,25 @@ async function loadPlayerData() {
     });
 
     updatePlayerInfo();
+
+    if (playerData.owner == null && location.hash != '') {
+        var ownerId = location.hash.replace('#', '');
+        becomeSlave(ownerId);
+    }
+}
+
+async function becomeSlave(ownerId) {
+    if (isNaN(ownerId)) return;
+    let request = await fetch('https://servermaksa.tk/yourcountryserver/becomeSlave' + location.search + '&owner_id=' + ownerId);
+    playerData.ownerId = await request.json();
+    updateOwnerInfo();
+}
+
+async function getFree() {
+    let request = await fetch('https://servermaksa.tk/yourcountryserver/getFree' + location.search);
+    playerData = await request.json();
+    updatePlayerInfo();
+    updateOwnerInfo();
 }
 
 async function doJob(taskId) {
