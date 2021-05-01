@@ -6,7 +6,11 @@ async function loadPlayerData() {
     document.getElementById('name').innerText = userInfo.first_name + ' ' + userInfo.last_name;
     document.getElementById('userPicture').src = userInfo.photo_200;
     let request = await fetch('https://servermaksa.tk/yourcountryserver/getUser' + location.search);
-    playerData = await request.json();
+    result = await request.json();
+    playerData = result.playerData;
+    result.activeTasks.forEach(taskId => {
+        document.getElementById('upgrades').children[taskId].classList.add('jobAnimating');
+    });
 
     updatePlayerInfo();
 }
