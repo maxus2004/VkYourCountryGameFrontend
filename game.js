@@ -18,7 +18,7 @@ async function loadPlayerData() {
 async function doJob(taskId) {
 
     if (taskId == 0) {
-        var result = await bridge.send("VKWebAppShowNativeAds", { ad_format: "preloader" })
+        var result = await bridge.send("VKWebAppShowNativeAds", { ad_format: "reward" })
         if (result.result == false) {
             var message = Math.floor(Math.random() * tasks[taskId].failMessages.length);
             showMessage(tasks[taskId].failMessages[message]);
