@@ -73,7 +73,7 @@ async function loadLeaderboard() {
         entry.className = 'leaderboardEntry';
         var nameNode = document.createElement('p');
         nameNode.className = 'leaderboardName';
-        nameNode.innerHTML = '<a href="' + 'https://vk.com/id' + player.id + '">' + player.name + '</a>';
+        nameNode.innerHTML = '<a href="' + 'https://vk.com/id' + player.id + '" target="_blank">' + player.name + '</a>';
         var status = ''
         if (player.money < 10000) status = 'бомж'
         else if (player.money < 100000) status = 'бедный'
