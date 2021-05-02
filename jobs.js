@@ -71,11 +71,12 @@ async function loadLeaderboard() {
 
         var entry = document.createElement('div');
         entry.className = 'leaderboardEntry';
-        var nameNode = document.createElement('a');
+        var nameAndStatusNode = document.createElement('p');
+        var nameNode = document.createElement('p');
         nameNode.className = 'leaderboardName';
         nameNode.href = 'https://vk.com/id' + player.id;
         nameNode.innerText = player.name;
-        entry.appendChild(nameNode);
+        nameAndStatusNode.appendChild(nameNode);
         var status = ''
         if (player.money < 10000) status = 'бомж'
         else if (player.money < 100000) status = 'бедный'
@@ -85,7 +86,8 @@ async function loadLeaderboard() {
         var statusNode = document.createElement('p');
         statusNode.className = 'leaderboardStatus';
         statusNode.innerText = status;
-        entry.appendChild(statusNode);
+        nameAndStatusNode.appendChild(statusNode);
+        entry.appendChild(nameAndStatusNode);
         var moneyNode = document.createElement('p');
         moneyNode.className = 'leaderboardMoney';
         moneyNode.innerText = player.money + '₽';
