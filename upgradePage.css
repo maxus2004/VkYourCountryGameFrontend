@@ -34,7 +34,7 @@
 }
 
 .jobActive {
-    transition: all 2s cubic-bezier(0.77, 0.03, 0.11, 0.98);
+    transition: all 2s cubic-bezier(0.9, 0.00, 0, 1);
     background: linear-gradient(90deg, #00df00 50%, transparent 5%);
     background-size: 200% 200%;
     background-position: 0% 50%;
