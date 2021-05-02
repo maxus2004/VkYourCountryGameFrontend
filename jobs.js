@@ -68,7 +68,8 @@ async function loadLeaderboard() {
     for (let i = 0; i < leaders.length; i++) {
         var player = leaders[i];
 
-        player.name = ownerNameRequest.response[i].first_name + ' ' + ownerNameRequest.response[i].last_name
+        if (ownerNameRequest.response[i] != undefined)
+            player.name = ownerNameRequest.response[i].first_name + ' ' + ownerNameRequest.response[i].last_name
 
         var entry = document.createElement('div');
         entry.className = 'leaderboardEntry';
