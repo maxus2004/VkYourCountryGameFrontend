@@ -12,6 +12,12 @@
     float: left;
 }
 
+.leaderboardStatus {
+    font: 1em sans-serif;
+    margin: 0;
+    float: left;
+}
+
 .leaderboardMoney {
     font: 1em sans-serif;
     margin: 0;
