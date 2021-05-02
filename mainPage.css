@@ -19,15 +19,27 @@
 
 .infoTitleLarge {
     margin: 0;
+    font: 1.5em sans-serif;
 }
 
 .infoLarge {
     color: gray;
     margin: 0;
+    font: 1.5em sans-serif;
+}
+
+.infoTitle {
+    margin: 0;
+    font: 1em sans-serif;
+}
+
+.info {
+    color: gray;
+    margin: 0;
+    font: 1em sans-serif;
 }
 
 .infoBox {
-    font: 1.5em sans-serif;
     text-align: left;
     border: 1px solid gray;
     border-radius: 2em;
