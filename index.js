@@ -1,5 +1,7 @@
 var bridge = vkBridge;
 
+var prevLeaderboardLoad = 0;
+
 bridge.send('VKWebAppInit');
 
 window.onload = function() {
@@ -14,6 +16,10 @@ window.onload = function() {
 }
 
 function setPage(page) {
+    if (page = 'leaderboardPage' && Date.now() - prevLeaderboardLoad > 1000 * 10) {
+        loadLeaderboard();
+    }
+
     var pages = document.getElementsByClassName('page');
     var selectors = document.getElementsByClassName('pageSelect');
     for (var i = 0; i < pages.length; i++) {
