@@ -38,6 +38,7 @@ async function updateOwnerInfo() {
 function updatePlayerInfo() {
     document.getElementById('money').innerText = playerData.money + "₽";
     document.getElementById('day').innerText = playerData.days;
+    document.getElementById('slaves').innerText = playerData.slaves;
     document.getElementById('moneyTasks').innerText = playerData.money + "₽";
     document.getElementById('dayTasks').innerText = playerData.days;
 
