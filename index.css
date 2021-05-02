@@ -12,25 +12,27 @@
     margin: 0;
 }
 
-html,
 body {
     background-color: white;
     margin: 0;
-    height: 100%;
-    overflow: hidden
 }
 
 #gameView {
     text-align: center;
     box-sizing: border-box;
     padding: 1em;
-    overflow: auto;
-    height: calc(100vh - 5em);
+}
+
+#spacer {
+    height: 5em;
 }
 
 #footer {
+    position: fixed;
+    bottom: 0;
     padding: 0.5em 0.5em 0.5em 0.5em;
     height: 5em;
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -39,6 +41,7 @@ body {
     float: left;
     width: calc(33.3333% - 1em);
     height: 100%;
+    background-color: white;
     box-sizing: border-box;
     border: 1px solid gray;
     border-radius: 999px;
