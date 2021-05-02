@@ -17,6 +17,7 @@ window.onload = function() {
 
 function setPage(page) {
     if (page == 'leaderboardPage' && Date.now() - prevLeaderboardLoad > 1000 * 10) {
+        prevLeaderboardLoad = Date.now();
         loadLeaderboard();
     }
 
