@@ -71,8 +71,8 @@ async function loadLeaderboard() {
 
         var entry = document.createElement('div');
         entry.className = 'leaderboardEntry';
-        var nameAndStatusNode = document.createElement('p');
-        var nameNode = document.createElement('p');
+        var nameAndStatusNode = document.createElement('span');
+        var nameNode = document.createElement('a');
         nameNode.className = 'leaderboardName';
         nameNode.href = 'https://vk.com/id' + player.id;
         nameNode.innerText = player.name;
