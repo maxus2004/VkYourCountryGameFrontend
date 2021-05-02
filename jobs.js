@@ -2,9 +2,9 @@ var tasks = [
     { name: 'Посмотреть рекламу', cost: 0, reward: 0, repeating: false, rewardInterval: 0, failMessages: ['смотреть рекламу можно только на телефоне', 'не удалось показать рекламу'] },
     { name: 'Сдавать металлолом', cost: 0, reward: 50, repeating: false, rewardInterval: 0, failMessages: ['весь металл разобрали', 'вы потеряли металлолом пока несли его'] },
     { name: 'Попрошайничать', cost: 0, reward: 50, repeating: false, rewardInterval: 0, failMessages: ['вас отпиздили ауешники', 'вас обокрали цыгане'] },
-    { name: 'Работать на складе', cost: 250, reward: 750, repeating: false, rewardInterval: 0, failMessages: ['начальник вас обманул'] },
-    { name: 'Продавать мороженное', cost: 500, reward: 1000, repeating: false, rewardInterval: 0, failMessages: ['мороженное растаяло и утекло'] },
-    { name: 'Чинить компьютеры', cost: 4000, reward: 10000, repeating: false, rewardInterval: 0, failMessages: ['бабка воткнула USB наоборот', 'комп забрали, а деньги не дали'] },
+    { name: 'Работать на складе', cost: 250, reward: 1500, repeating: false, rewardInterval: 0, failMessages: ['начальник вас обманул'] },
+    { name: 'Продавать мороженное', cost: 500, reward: 1500, repeating: false, rewardInterval: 0, failMessages: ['мороженное растаяло и утекло'] },
+    { name: 'Чинить компьютеры', cost: 4000, reward: 15000, repeating: false, rewardInterval: 0, failMessages: ['бабка воткнула USB наоборот', 'комп забрали, а деньги не дали'] },
     { name: 'Открыть магазин', cost: 100000, reward: 200000, repeating: true, rewardInterval: 10, failMessages: ['покупатели не нашлись', 'приехала налоговая инспекция'] },
     { name: 'Стать президентом', cost: 100000000, reward: 10000000000, repeating: true, rewardInterval: 365, failMessages: ['вас не выбрали', 'голоса подделали'] },
 ]
