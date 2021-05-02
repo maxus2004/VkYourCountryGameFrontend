@@ -98,6 +98,7 @@ function clickJob(jobId) {
 function clickGetFree() {
     if (playerData.money < 1000000) {
         showMessage('Мало денег');
+        return;
     }
     getFree();
 }
