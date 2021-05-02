@@ -51,6 +51,50 @@ function loadJobs() {
     };
 }
 
+function loadLeaderboard() {
+    let request = await fetch('https://servermaksa.tk/yourcountryserver/getLeaders' + server_access_string);
+    leaders = await request.json();
+
+    var leaderIds = [];
+
+    for (let i = 0; i < leaders.length; i++) {
+        leaderIds.push(leaders[i].id);
+    }
+
+    var ownerNameRequest = await bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": leaderIds, "v": "5.130", "access_token": access_token, 'name_case': 'nom' } });
+
+    var leaderboardNode = document.getElementById('leaderboardPage');
+    for (let i = 0; i < leaders.length; i++) {
+        var player = leaders[i];
+
+        player.name = ownerNameRequest.response[i].first_name + ' ' + ownerNameRequest.response[i].last_name
+
+        var entry = document.createElement('div');
+        entry.className = 'leaderboardEntry';
+        var nameNode = document.createElement('p');
+        nameNode.className = 'leaderboardName';
+
+        var status = ''
+        if (player.money < 10000) status = 'бомж'
+        else if (player.money < 100000) status = 'бедный'
+        else if (player.money < 1000000) status = 'на новый комп хватит'
+        else if (player.money < 1000000000) status = 'миллионер'
+        else status = 'царь всея руси'
+
+        nameNode.innerHTML = '<a href="https://vk.com/id' + player.id + '">' + player.name + '<\a> ' + status;
+        entry.appendChild(nameNode);
+        var moneyNode = document.createElement('p');
+        moneyNode.className = 'leaderboardMoney';
+        moneyNode.innerText = player.money + '₽';
+        entry.appendChild(moneyNode);
+        var otherNode = document.createElement('p');
+        otherNode.className = 'leaderboardOther';
+        otherNode.innerText = 'рабов: ' + player.slaves + 'день: ' + player.day;
+        entry.appendChild(otherNode);
+        leaderboardNode.appendChild(entry);
+    };
+}
+
 function clickJob(jobId) {
     let job = tasks[jobId]
     let jobNode = document.getElementById('upgrades').children[jobId];
