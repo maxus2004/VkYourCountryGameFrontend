@@ -98,6 +98,8 @@ function clickJob(jobId) {
 function clickGetFree() {
     if (playerData.money < 1000000) {
         showMessage('Мало денег');
+        document.getElementById('getFreeBtn').classList.add('jobNoMoney');
+        setTimeout(function() { document.getElementById('getFreeBtn').classList.remove('jobNoMoney') }, 300);
         return;
     }
     getFree();
