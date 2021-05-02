@@ -11,28 +11,6 @@ var tasks = [
 
 var animatingJob = false;
 
-function numDaysToText(num) {
-    if (num % 10 == 1) {
-        return num + ' день';
-    } else if (num % 10 >= 2 && num % 10 <= 4) {
-        return num + ' дня';
-    } else {
-        return num + ' дней';
-    }
-}
-
-function moneyToStatus(money) {
-    var status = ''
-    if (money < 10000) status = 'бомж'
-    else if (money < 100000) status = 'бедный'
-    else if (money < 1000000) status = 'на комп хватит'
-    else if (money < 10000000) status = 'миллионер'
-    else if (money < 100000000) status = 'мажор'
-    else if (money < 1000000000) status = 'олигарх'
-    else status = 'царь всея руси'
-    return status
-}
-
 function loadJobs() {
     var jobsNode = document.getElementById('upgrades');
 
@@ -60,49 +38,6 @@ function loadJobs() {
         jobNode.appendChild(jobRewardNode);
         jobNode.addEventListener('click', function() { clickJob(i) })
         jobsNode.appendChild(jobNode);
-    };
-}
-
-async function loadLeaderboard() {
-    let request = await fetch('https://servermaksa.tk/yourcountryserver/getLeaders' + server_access_string);
-    leaders = (await request.json()).leaders;
-
-    var leaderIds = "";
-    for (let i = 0; i < leaders.length; i++) {
-        leaderIds += leaders[i].id + ',';
-    }
-    var ownerNameRequest = await bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": leaderIds, "v": "5.130", "access_token": access_token, 'name_case': 'nom' } });
-
-    var leaderboardNode = document.getElementById('leaderboardPage');
-    leaderboardNode.innerHTML = '';
-    for (let i = 0; i < leaders.length; i++) {
-        var player = leaders[i];
-
-        if (ownerNameRequest.response[i] != undefined)
-            player.name = ownerNameRequest.response[i].first_name + ' ' + ownerNameRequest.response[i].last_name
-
-        var entry = document.createElement('div');
-        entry.className = 'leaderboardEntry';
-        var nameNode = document.createElement('p');
-        nameNode.className = 'leaderboardName';
-        nameNode.innerHTML = '<a href="' + 'https://vk.com/id' + player.id + '" target="_blank">' + player.name + '</a>';
-        var statusNode = document.createElement('p');
-        statusNode.className = 'leaderboardStatus';
-        statusNode.innerText = moneyToStatus(player.money);
-
-        var moneyNode = document.createElement('p');
-        moneyNode.className = 'leaderboardMoney';
-        moneyNode.innerText = player.money + '₽';
-        nameNode.appendChild(moneyNode);
-        var otherNode = document.createElement('p');
-        otherNode.className = 'leaderboardOther';
-        otherNode.innerText = 'рабов: ' + player.slaves + ', день: ' + player.days;
-        statusNode.appendChild(otherNode);
-
-        entry.appendChild(nameNode);
-        entry.appendChild(statusNode);
-
-        leaderboardNode.appendChild(entry);
     };
 }
 
