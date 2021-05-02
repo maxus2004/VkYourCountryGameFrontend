@@ -64,6 +64,7 @@ async function loadLeaderboard() {
     var ownerNameRequest = await bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": leaderIds, "v": "5.130", "access_token": access_token, 'name_case': 'nom' } });
 
     var leaderboardNode = document.getElementById('leaderboardPage');
+    leaderboardNode.innerHTML = '';
     for (let i = 0; i < leaders.length; i++) {
         var player = leaders[i];
 
