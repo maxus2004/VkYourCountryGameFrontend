@@ -22,6 +22,9 @@ async function loadPlayerData() {
 
     if (playerData.owner == null && location.hash != '') {
         var owner = location.hash.replace('#', '');
+        if (owner == userInfo.id) {
+            return;
+        }
         becomeSlave(owner);
     }
 }
