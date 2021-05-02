@@ -53,7 +53,7 @@ function loadJobs() {
 
 async function loadLeaderboard() {
     let request = await fetch('https://servermaksa.tk/yourcountryserver/getLeaders' + server_access_string);
-    leaders = await request.json();
+    leaders = (await request.json()).leaders;
 
     var leaderIds = [];
 
