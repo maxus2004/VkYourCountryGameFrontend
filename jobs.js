@@ -89,7 +89,7 @@ async function loadLeaderboard() {
         entry.appendChild(moneyNode);
         var otherNode = document.createElement('p');
         otherNode.className = 'leaderboardOther';
-        otherNode.innerText = 'рабов: ' + player.slaves + 'день: ' + player.day;
+        otherNode.innerText = 'рабов: ' + player.slaves + 'день: ' + player.days;
         entry.appendChild(otherNode);
         leaderboardNode.appendChild(entry);
     };
