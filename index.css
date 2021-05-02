@@ -2,6 +2,10 @@
     user-select: none;
 }
 
+.clickable {
+    box-shadow: -0.5em -0.5em 1em 0px rgba(173, 216, 230, 0.5) inset;
+}
+
 #betaWarning {
     font: 1em sans-serif;
     color: red;
@@ -83,8 +87,4 @@ body {
     to {
         bottom: -4em;
     }
-}
-
-.clickable {
-    box-shadow: -0.5em -0.5em 1em 0px rgba(173, 216, 230, 0.5) inset;
 }
