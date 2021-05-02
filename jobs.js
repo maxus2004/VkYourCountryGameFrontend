@@ -101,3 +101,8 @@ function clickGetFree() {
     }
     getFree();
 }
+
+function clickGetSlaves() {
+    var link = "https://vk.com/app7811492#" + userInfo.id;
+    bridge.send("VKWebAppShare", { "link": link });
+}

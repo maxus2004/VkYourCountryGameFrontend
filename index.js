@@ -3,9 +3,14 @@ var bridge = vkBridge;
 bridge.send('VKWebAppInit');
 
 window.onload = function() {
+    document.getElementById('getFreeBtn').addEventListener('click', clickGetFree);
+    document.getElementById('getSlavesBtn').addEventListener('click', clickGetSlaves);
+    document.getElementById('leaderboardPageSelect').addEventListener('click', function() { setPage('leaderboardPage') });
+    document.getElementById('mainPageSelect').addEventListener('click', function() { setPage('mainPage') });
+    document.getElementById('upgradePageSelect').addEventListener('click', function() { setPage('upgradePage') });
+
     loadJobs();
     loadPlayerData();
-    document.getElementById('getFreeBtn').addEventListener('click', clickGetFree);
 }
 
 function setPage(page) {
