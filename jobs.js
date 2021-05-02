@@ -55,12 +55,10 @@ async function loadLeaderboard() {
     let request = await fetch('https://servermaksa.tk/yourcountryserver/getLeaders' + server_access_string);
     leaders = (await request.json()).leaders;
 
-    var leaderIds = [];
-
+    var leaderIds = "";
     for (let i = 0; i < leaders.length; i++) {
-        leaderIds.push(leaders[i].id);
+        leaderIds += leaders[i].id + ',';
     }
-
     var ownerNameRequest = await bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": leaderIds, "v": "5.130", "access_token": access_token, 'name_case': 'nom' } });
 
     var leaderboardNode = document.getElementById('leaderboardPage');
