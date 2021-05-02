@@ -26,28 +26,21 @@ body {
 }
 
 #footer {
-    box-sizing: border-box;
+    padding: 0.5em 0.5em 0.5em 0.5em;
     height: 5em;
-    padding: 0em 1em 1em 1em;
-}
-
-.pageSelectOuter {
     box-sizing: border-box;
-    float: left;
-    width: 33%;
-    padding: 0.3em;
-    text-align: center;
-    height: 100%;
 }
 
 .pageSelect {
+    text-align: center;
+    float: left;
+    width: calc(33.3333% - 1em);
+    height: 100%;
     box-sizing: border-box;
     background-color: white;
-    display: inline-flexbox;
-    height: 100%;
     border: 1px solid gray;
     border-radius: 999px;
-    padding: 0.2em 0 0.2em 0;
+    margin: 0 0.5em 0 0.5em;
 }
 
 .pageSelected {
