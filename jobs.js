@@ -21,6 +21,18 @@ function numDaysToText(num) {
     }
 }
 
+function moneyToStatus(money) {
+    var status = ''
+    if (money < 10000) status = 'бомж'
+    else if (money < 100000) status = 'бедный'
+    else if (money < 1000000) status = 'на комп хватит'
+    else if (money < 10000000) status = 'миллионер'
+    else if (money < 100000000) status = 'мажор'
+    else if (money < 1000000000) status = 'олигарх'
+    else status = 'царь всея руси'
+    return status
+}
+
 function loadJobs() {
     var jobsNode = document.getElementById('upgrades');
 
@@ -74,15 +86,9 @@ async function loadLeaderboard() {
         var nameNode = document.createElement('p');
         nameNode.className = 'leaderboardName';
         nameNode.innerHTML = '<a href="' + 'https://vk.com/id' + player.id + '" target="_blank">' + player.name + '</a>';
-        var status = ''
-        if (player.money < 10000) status = 'бомж'
-        else if (player.money < 100000) status = 'бедный'
-        else if (player.money < 1000000) status = 'на новый комп хватит'
-        else if (player.money < 1000000000) status = 'миллионер'
-        else status = 'царь всея руси'
         var statusNode = document.createElement('p');
         statusNode.className = 'leaderboardStatus';
-        statusNode.innerText = status;
+        statusNode.innerText = moneyToStatus(player.money);
 
         var moneyNode = document.createElement('p');
         moneyNode.className = 'leaderboardMoney';
