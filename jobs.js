@@ -71,14 +71,10 @@ async function loadLeaderboard() {
 
         var entry = document.createElement('div');
         entry.className = 'leaderboardEntry';
-        var nameAndStatusNode = document.createElement('span');
-        nameAndStatusNode.className = 'leaderboardNameAndStatus';
         var nameNode = document.createElement('a');
         nameNode.className = 'leaderboardName';
         nameNode.href = 'https://vk.com/id' + player.id;
         nameNode.innerText = player.name;
-        nameAndStatusNode.appendChild(nameNode);
-        nameAndStatusNode.appendChild(document.createElement('br'));
         var status = ''
         if (player.money < 10000) status = 'бомж'
         else if (player.money < 100000) status = 'бедный'
@@ -88,16 +84,19 @@ async function loadLeaderboard() {
         var statusNode = document.createElement('p');
         statusNode.className = 'leaderboardStatus';
         statusNode.innerText = status;
-        nameAndStatusNode.appendChild(statusNode);
-        entry.appendChild(nameAndStatusNode);
+
         var moneyNode = document.createElement('p');
         moneyNode.className = 'leaderboardMoney';
         moneyNode.innerText = player.money + '₽';
-        entry.appendChild(moneyNode);
+        nameNode.appendChild(moneyNode);
         var otherNode = document.createElement('p');
         otherNode.className = 'leaderboardOther';
         otherNode.innerText = 'рабов: ' + player.slaves + ', день: ' + player.days;
-        entry.appendChild(otherNode);
+        statusNode.appendChild(otherNode);
+
+        entry.appendChild(nameNode);
+        entry.appendChild(statusNode);
+
         leaderboardNode.appendChild(entry);
     };
 }
